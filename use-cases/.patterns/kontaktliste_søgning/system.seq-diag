@@ -1,0 +1,5 @@
+=== loop ===
+  Receptionist-N     ->> Klient-N          [label = "any character"];
+  Klient-N           ->> Receptionist-N    [label = "narrow down contact list"];
+  Receptionist-N    <<-  Klient-N          [label = "update contact view"];
+=== end loop ===

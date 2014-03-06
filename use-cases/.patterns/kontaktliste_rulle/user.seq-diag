@@ -1,0 +1,4 @@
+=== loop ===
+  Receptionist       ->> System            [label = "pil op/pil ned"];
+  System             ->> Receptionist      [label = "vis detaljer om markeret kontakt"];
+=== end loop ===

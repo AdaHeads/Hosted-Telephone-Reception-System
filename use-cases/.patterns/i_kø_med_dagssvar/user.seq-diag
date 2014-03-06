@@ -1,0 +1,2 @@
+  System             ->> Opkalder          [label = "De har ringet til\nJSA R&I. Vent venligst."];
+  System             ->> Receptionist      [label = "Opkald til: JSA R&I (optaget)"];

@@ -1,0 +1,1 @@
+  Medarbejder        ->> FreeSWITCH        [label = "SIP: accepter-opkald"];

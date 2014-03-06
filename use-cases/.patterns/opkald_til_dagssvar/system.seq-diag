@@ -1,0 +1,11 @@
+  Opkalder           ->> FreeSWITCH        [label = "SIP: +45 21 49 08 04"];
+  FreeSWITCH         ->> Opkalder          [label = "ringetone"];
+  FreeSWITCH         ->  FreeSWITCH        [label = "dial-plan-query:\n+45 21 49 08 04?", note = "queue\ncall"];
+  FreeSWITCH         ->> Call-Flow-Control [label = "queued-dialtone: +45 21 49 08 04"];
+  FreeSWITCH         ->  FreeSWITCH        [label = "pause-processing"];
+???
+  Call-Flow-Control  ->> FreeSWITCH        [label = "force-end-pause: +45 21 49 08 04"];
+  FreeSWITCH         ->> Call-Flow-Control [label = "queued-unavailable: +45 21 49 08 04"];
+  FreeSWITCH         ->> Opkalder          [label = "dagssvar"];
+  Call-Flow-Control  ->> Klient-N          [label = "unavailable: +45 21 49 08 04", note = "Til alle klienter."];
+  Klient-N           ->> Receptionist-N    [label = "Queue: JSA R&I (optaget)"];

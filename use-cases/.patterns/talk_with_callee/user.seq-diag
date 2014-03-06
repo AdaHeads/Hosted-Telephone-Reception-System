@@ -1,0 +1,4 @@
+=== loop ===
+  Receptionist       ->> Medarbejder       [label = "snakker"];
+  Receptionist      <<-  Medarbejder       [label = "snakker"];
+=== end loop ===

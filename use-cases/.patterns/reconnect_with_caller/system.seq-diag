@@ -1,0 +1,9 @@
+  FreeSWITCH         ->  FreeSWITCH        [label = "forbind opkalder og telefon-N"];
+  === loop ===
+  Receptionist-N     ->> Telefon-N         [label = "snak"];
+  Telefon-N          ->> FreeSWITCH        [label = "SIP: lyd"];
+  FreeSWITCH         ->> Opkalder          [label = "SIP: lyd"];
+  Opkalder           ->> FreeSWITCH        [label = "SIP: lyd"];
+  FreeSWITCH         ->> Telefon-N         [label = "SIP: lyd"];
+  Telefon-N          ->> Receptionist-N    [label = "snak"];
+  === end loop ===

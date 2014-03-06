@@ -1,0 +1,3 @@
+  Receptionist       ->> System            [label = "genvejstast-liste-med-sekundaere-numre"];
+  Receptionist       ->> System            [label = "pil op/ned", note = "nogle\ngange"];
+  Receptionist       ->> System            [label = "genvejstast-ring-markeret-nummer-op"];

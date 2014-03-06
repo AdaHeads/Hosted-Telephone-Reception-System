@@ -1,0 +1,5 @@
+=== loop ===
+  Receptionist       ->> System            [label = "soegetermer"];
+  System             ->> Receptionist      [label = "indsnaevret kontaktliste"];
+  System             ->> Receptionist      [label = "vis detaljer om markeret kontakt"];
+=== end loop ===

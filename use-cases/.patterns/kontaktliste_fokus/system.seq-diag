@@ -1,0 +1,2 @@
+  Receptionist-N     ->> Klient-N          [label = "genvejstast-for-kontaktliste"];
+  Receptionist-N    <<-  Klient-N          [label = "fokus: kontaktliste og soegefelt"];

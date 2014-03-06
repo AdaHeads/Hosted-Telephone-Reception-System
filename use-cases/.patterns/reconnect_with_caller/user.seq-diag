@@ -1,0 +1,5 @@
+  System             ->> Receptionist      [label = "forbindelse med opkalder"];
+=== loop ===
+  Receptionist       ->> Opkalder          [label = "snakker"];
+  Receptionist      <<-  Opkalder          [label = "snakker"];
+=== end loop ===

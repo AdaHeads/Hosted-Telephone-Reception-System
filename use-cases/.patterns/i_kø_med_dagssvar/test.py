@@ -1,0 +1,6 @@
+            self.Step (Message = "Receptionist-N: Busy doing other things (allowing FreeSWITCH to time out).")
+            self.Step (Message = "FreeSWITCH: pause timed out")
+            self.Step (Message = "FreeSWITCH->Call-Flow-Control: queued-unavailable: +45 21 49 08 04")
+            self.Step (Message = "FreeSWITCH->Caller: De har ringet til JSA R&I. Vent venligst.")
+            self.Call_Announced_As_Locked (Call_ID = Call_ID)
+            self.Step (Message = "Client-N->Receptionist-N: Queue: JSA R&I (optaget)")

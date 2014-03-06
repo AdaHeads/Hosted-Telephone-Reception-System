@@ -1,0 +1,1 @@
+  Receptionist-N     ->> Klient-N          [label = "tag opkald"];

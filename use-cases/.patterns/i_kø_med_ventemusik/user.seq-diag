@@ -1,0 +1,2 @@
+  System             ->> Opkalder          [label = "ventemusik"];
+  System             ->> Receptionist      [label = "Opkald til: JSA R&I (venter)"];

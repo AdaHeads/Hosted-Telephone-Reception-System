@@ -1,0 +1,1 @@
+  Receptionist-N     ->> Klient-N          [label = "handling der skifter til 'ledig'"];

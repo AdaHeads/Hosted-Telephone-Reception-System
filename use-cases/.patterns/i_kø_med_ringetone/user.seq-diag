@@ -1,0 +1,1 @@
+  System             ->> Receptionist      [label = "Opkald til: JSA R&I (ringer)"];

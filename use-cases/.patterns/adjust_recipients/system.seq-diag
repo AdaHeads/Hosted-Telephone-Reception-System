@@ -1,0 +1,2 @@
+  Receptionist-N     ->> Klient-N          [label = "genvejstast-fokus-modtagerliste", note = "maaske"];
+  Receptionist-N     ->> Klient-N          [label = "retter modtagerlisten"];

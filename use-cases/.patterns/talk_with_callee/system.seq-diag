@@ -1,0 +1,8 @@
+  === loop ===
+  Receptionist-N     ->> Telefon-N         [label = "snak"];
+  Telefon-N          ->> FreeSWITCH        [label = "SIP: lyd"];
+  FreeSWITCH         ->> Medarbejder       [label = "SIP: lyd"];
+  Medarbejder        ->> FreeSWITCH        [label = "SIP: lyd"];
+  FreeSWITCH         ->> Telefon-N         [label = "SIP: lyd"];
+  Telefon-N          ->> Receptionist-N    [label = "snak"];
+  === end loop ===

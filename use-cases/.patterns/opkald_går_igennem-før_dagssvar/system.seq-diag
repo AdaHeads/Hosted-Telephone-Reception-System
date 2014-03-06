@@ -1,0 +1,7 @@
+  Klient-N           ->> Call-Flow-Control [label = "update-info: +45 21 49 08 04"];
+  Klient-N          <<-  Call-Flow-Control [label = "info-on: +45 21 49 08 04"];
+  Klient-N           ->> Call-Flow-Control [label = "/call/offer/accept +45 21 49 08 04"];
+  Klient-N          <<-  Call-Flow-Control [label = "pickup: +45 21 49 08 04, klient-N", note = "Til alle\nklienter."];
+  Klient-N           ->> Receptionist-N    [label = "Information on JSA R&I\n(with full greeting)."];
+  Call-Flow-Control  ->> FreeSWITCH        [label = "connect: +45 21 49 08 04, klient-N"];
+  Opkalder          <<-  Receptionist-N    [label = "JSA R&I goddag, det er ..."];

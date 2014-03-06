@@ -1,0 +1,6 @@
+  Klient-N           ->> Call-Flow-Control [label = "update-info: +45 21 49 08 04"];
+  Klient-N          <<-  Call-Flow-Control [label = "info-on: +45 21 49 08 04"];
+  Klient-M           ->> Call-Flow-Control [label = "/call/offer/accept +45 21 49 08 04"];
+  Klient-N           ->> Call-Flow-Control [label = "/call/offer/accept +45 21 49 08 04"];
+  Klient-N          <<-  Call-Flow-Control [label = "pickup: +45 21 49 08 04, klient-M", note = "Til alle\nklienter."];
+  Klient-N           ->> Receptionist-N    [label = "Un-queue: JSA R&I."];

@@ -1,0 +1,4 @@
+  Receptionist-N     ->> Klient-N          [label = "genvejstast-viderestil-til-nummer"];
+  Klient-N           ->> Receptionist-N    [label = "indtastningsfelt: telefonnummer"];
+  Receptionist-N     ->> Klient-N          [label = "indtaster/indkopierer nummer"];
+  Receptionist-N     ->> Klient-N          [label = "genvejstast-ring-op"];

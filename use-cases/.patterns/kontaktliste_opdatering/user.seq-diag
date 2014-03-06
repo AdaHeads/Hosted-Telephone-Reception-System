@@ -1,0 +1,1 @@
+  System             ->> Receptionist      [label = "vis detaljer om markeret kontakt", note = "opdateres loebende"];

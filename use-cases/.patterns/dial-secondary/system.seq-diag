@@ -1,0 +1,7 @@
+  Receptionist-N     ->> Klient-N          [label = "genvejstast-liste-med-sekundaere-numre"];
+  Receptionist-N     ->> Klient-N          [label = "pil op/ned", note = "nogle\ngange"];
+  Receptionist-N     ->> Klient-N          [label = "genvejstast-ring-markeret-nummer-op"];
+  Klient-N           ->> Call-Flow-Control [label = "ring-op: nummer"];
+  Call-Flow-Control  ->> FreeSWITCH        [label = "ring-op: nummer, telefon-N"];
+  FreeSWITCH         ->> Medarbejder       [label = "SIP: opkald"];
+  FreeSWITCH         ->  FreeSWITCH        [label = "forbind opkald\nmed telefon-N"];
