@@ -1,0 +1,70 @@
+#! /bin/bash
+#-----------------------------------------------------------------------------
+#  Locate input file:
+
+if [ $# != 1 -o -z "$1" ]; then
+   echo "Usage:"                                                                      1>&2
+   echo "   $0 <use-case-variant>"                                                    1>&2
+   echo "where <use-case-variant> is a directory containing a variant of a use-case." 1>&2
+   exit 101
+elif [ -d "${1%%/user.md}" -a -f "${1%%/user.md}/user.md" ]; then
+   variant="${1%%/user.md}"
+else
+   echo "'$1' does not appear to be a variant of a use-case." 1>&2
+   exit 102
+fi
+
+source_type=user.md
+target_type=user.seq-diag
+
+source="${variant}/${source_type}"
+target="${variant}/${target_type}"
+
+#-----------------------------------------------------------------------------
+#  Locate the patterns directory:
+
+patterns="$(cd "$(dirname "$0")/../use-cases/.patterns" && pwd)"
+
+if [ -z "${patterns}" -o ! -d "${patterns}" ]; then
+   echo "Can not locate the patterns directory." 1>&2
+   echo "Expected it to be at '$(dirname "$0")/../use-cases/.patterns/'." 1>&2
+   exit 100
+fi
+
+#-----------------------------------------------------------------------------
+#  Copy input for patching:
+
+if [ -f "${source}" ]; then
+   if [ -f "${target}" ]; then
+      if [ "${source}" -nt "${target}" ]; then
+         cp -p "${source}" "${target}"
+      else
+         echo "'${target}' is already up-to-date." 1>&2
+         exit 0
+      fi
+   else
+      cp -p "${source}" "${target}"
+   fi
+else
+   echo "'${source}' does not exist." 1>&2
+   exit 103
+fi
+
+
+#-----------------------------------------------------------------------------
+#  Generate and apply patches:
+
+for source_pattern in $(LANG=C wc -l "${patterns}"/*/"${source_type}" \
+                          | egrep "/${source_type}"'$' \
+                          | sort -nr \
+                          | perl -lpe 's/^ *[0-9]+ +//'); do
+   target_pattern="$(dirname "${source_pattern}")/${target_type}"
+
+   if [ -f "${source_pattern}" -a -f "${target_pattern}" ]; then
+      diff -u ${source_pattern} ${target_pattern} | patch ${target} 1>/dev/null 2>/dev/null || true
+   else
+      echo "The pattern '$(basename $(dirname "${source_pattern}"))' is incomplete." 1>&2
+   fi
+done
+
+#-----------------------------------------------------------------------------
