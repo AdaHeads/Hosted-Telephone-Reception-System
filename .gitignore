@@ -1,3 +1,6 @@
 use-cases/*/*/user.seq-diag
+use-cases/*/*/user.seq-diag.png
 use-cases/*/*/system.md
 use-cases/*/*/system.seq-diag
+use-cases/*/*/system.seq-diag.png
+use-cases/*/*/test.py
