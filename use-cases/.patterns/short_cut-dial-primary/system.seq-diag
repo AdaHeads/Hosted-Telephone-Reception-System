@@ -1,3 +1,4 @@
+seqdiag {
   Receptionist-N     ->> Klient-N          [label = "genvejstast-ring-til-primaert-nummer"];
   Klient-N           ->> Call-Flow-Control [label = "ring-op: nummer"];
   Call-Flow-Control  ->> FreeSWITCH        [label = "ring-op: telefon-N, nummer"];

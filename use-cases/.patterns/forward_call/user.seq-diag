@@ -2,3 +2,4 @@
   System             ->> Receptionist      [label = "laegger telefonen paa"];
   System             ->> Medarbejder       [label = "forbindelse med opkalder"];
   System             ->  System            [label = "receptionisten\ner ledig nu"];
+}

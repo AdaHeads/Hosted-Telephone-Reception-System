@@ -1,1 +1,2 @@
+seqdiag {
   Opkalder           ->> FreeSWITCH        [label = "SIP: +45 21 49 08 04"];

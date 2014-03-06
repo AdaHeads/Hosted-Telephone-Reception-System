@@ -1,3 +1,4 @@
+seqdiag {
   Receptionist-N     ->> Klient-N          [label = "genvejstast-liste-med-sekundaere-numre"];
   Receptionist-N     ->> Klient-N          [label = "pil op/ned", note = "nogle\ngange"];
   Receptionist-N     ->> Klient-N          [label = "genvejstast-ring-markeret-nummer-op"];

@@ -2,3 +2,4 @@
   Receptionist-N     ->> Klient-N          [label = "arrow up/down"];
   Receptionist-N    <<-  Klient-N          [label = "update contact view"];
 === end loop ===
+}

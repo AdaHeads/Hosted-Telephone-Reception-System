@@ -5,3 +5,4 @@
   FreeSWITCH         ->> Telefon-N         [label = "SIP: hang-up"];
   FreeSWITCH         ->> Call-Flow-Control [label = "ledig: telefon-N"];
   FreeSWITCH         ->> FreeSWITCH        [label = "forbind indgaaende og udgaaende"];
+}

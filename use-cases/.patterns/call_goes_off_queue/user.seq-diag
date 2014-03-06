@@ -1,1 +1,2 @@
-  Systemet      ->> Receptionist [label = "Slettes fra koe: JSA R&I"]
+  Systemet      ->> Receptionist [label = "Slettes fra koe: JSA R&I"];
+}
