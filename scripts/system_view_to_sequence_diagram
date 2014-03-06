@@ -14,8 +14,8 @@ else
    exit 102
 fi
 
-source_type=user.md
-target_type=system.md
+source_type=system.md
+target_type=system.seq-diag
 
 source="${variant}/${source_type}"
 target="${variant}/${target_type}"

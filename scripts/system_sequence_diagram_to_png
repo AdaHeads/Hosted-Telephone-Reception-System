@@ -1,0 +1,42 @@
+#! /bin/bash
+#-----------------------------------------------------------------------------
+#  Locate input file:
+
+if [ $# != 1 -o -z "$1" ]; then
+   echo "Usage:"                                                                      1>&2
+   echo "   $0 <use-case-variant>"                                                    1>&2
+   echo "where <use-case-variant> is a directory containing a variant of a use-case." 1>&2
+   exit 101
+elif [ -d "${1%%/user.md}" -a -f "${1%%/user.md}/user.md" ]; then
+   variant="${1%%/user.md}"
+else
+   echo "'$1' does not appear to be a variant of a use-case." 1>&2
+   exit 102
+fi
+
+source_type=system.seq-diag
+target_type=system.seq-diag.png
+
+source="${variant}/${source_type}"
+target="${variant}/${target_type}"
+
+#-----------------------------------------------------------------------------
+#  Copy input for patching:
+
+if [ -f "${source}" ]; then
+   if [ -f "${target}" ]; then
+      if [ "${source}" -nt "${target}" ]; then
+         seqdiag -o "${target}" "${source}"
+      else
+         echo "'${target}' is already up-to-date." 1>&2
+         exit 0
+      fi
+   else
+      seqdiag -o "${target}" "${source}"
+   fi
+else
+   echo "'${source}' does not exist." 1>&2
+   exit 103
+fi
+
+#-----------------------------------------------------------------------------
