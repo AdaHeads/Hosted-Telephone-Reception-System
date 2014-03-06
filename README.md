@@ -26,9 +26,14 @@ files are generated for each use-case variant:
 + Sequence diagram images matching the user and system views (in `user.seq-diag.png` and `system.seq-diag.png`).
 + An integration test (in Python) for that variant of the use-case (in `test.py`).
 
+To generate these files run:
+```shell
+make use-cases
+```
+
 This information is collected and pushed to the wiki as one page per use-case.
 
 The integration tests are pushed to the [Coverage Tests](https://github.com/AdaHeads/Coverage_Tests) repository.
 
-(The automation indicated above isn't implemented yet.)
+(The push to wiki and Coverage Tests isn't implemented yet.)
 
