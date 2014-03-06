@@ -28,7 +28,7 @@ files are generated for each use-case variant:
 
 This information is collected and pushed to the wiki as one page per use-case.
 
-The integration tests are pushed to the [Coverage Tests](/AdaHeads/Coverage_Tests) repository.
+The integration tests are pushed to the [Coverage Tests](https://github.com/AdaHeads/Coverage_Tests) repository.
 
 (The automation indicated above isn't implemented yet.)
 
