@@ -1,0 +1,123 @@
+#! /bin/bash
+#-----------------------------------------------------------------------------
+#  Locate input files:
+
+if [ $# != 1 -o -z "$1" ]; then
+   echo "Usage:"                                                              1>&2
+   echo "   $0 <use-case>"                                                    1>&2
+   echo "where <use-case> is a directory containing a variant of a use-case." 1>&2
+   exit 101
+elif [ -d "${1%%/name}" -a -f "${1%%/name}/name" ]; then
+   use_case="${1%%/name}"
+   use_case_id="$(basename "${use_case}")"
+else
+   echo "'$1' does not appear to be a use-case." 1>&2
+   exit 102
+fi
+
+#-----------------------------------------------------------------------------
+#  Locate wiki directory:
+
+if [ -f "$0.rc" ]; then
+   source "$0.rc"
+fi
+
+if [ ! -z "${wiki}" -a -d "${wiki}" ]; then
+   true
+else
+   find ~/ -type d -name .git \
+     | while read git_directory; do
+          if egrep -q "url = .+/Hosted-Telephone-Reception-System.wiki.git" "${git_directory}/config"; then
+             echo "wiki='$(dirname "${git_directory}")'" >> "$0.rc"
+             break
+          fi
+       done
+
+   if [ -f "$0.rc" ]; then
+      source "$0.rc"
+   fi
+fi
+
+if [ ! -z "${wiki}" -a -d "${wiki}" ]; then
+   echo "Wiki located in '${wiki}/'." 1>&2
+else
+   echo "Couldn't locate the 'Hosted-Telephone-Reception-System' wiki." 1>&2
+   exit 104
+fi
+
+buffer="$(mktemp)"
+target="${wiki}/$(cat "${use_case}/name")"
+
+#-----------------------------------------------------------------------------
+#  Collect:
+
+(
+   echo -n "File generated " ; LANG=en_GB date
+   echo
+
+   if [ ! -f "${use_case}/preconditions.md" ]; then
+      echo "Use-case '${use_case_id}' has no preconditions." 1>&2
+      exit 105
+   fi
+
+   cat "${use_case}/preconditions.md"
+   echo
+
+   for view in user system; do
+      case "${view}" in
+         user)   echo "## Fra brugernes synspunkt";;
+         system) echo "## Fra systemets synspunkt";;
+      esac
+      echo
+
+      for variant_description in "${use_case}"/*/description.md; do
+         variant="$(dirname "${variant_description}")"
+         variant_id="$(basename "${variant}")"
+
+         sequence_diagram="diagrams/${use_case_id}-${variant_id}-${view}.png"
+
+         echo "## Variant ${variant_id//-/.}:"
+         echo
+
+         cat "${variant}/description.md"
+         echo
+
+         echo "Handlinger:"
+         echo
+
+         if [ ! -f "${variant}/${view}.md" ]; then
+            echo "Can not find '${variant}/${view}.md'." 1>&2
+            exit 106
+         fi
+
+         cat "${variant}/${view}.md"
+         echo
+
+         if [ ! -f "${variant}/${view}.seq-diag.png" ]; then
+            echo "Can not find '${variant}/${view}.seq-diag.png'." 1>&2
+            exit 107
+         fi
+
+         cp -p "${variant}/${view}.seq-diag.png" "${wiki}/${sequence_diagram}"
+
+         echo '![Sekvensdiagram]('${sequence_diagram}')'
+         echo
+      done
+   done
+
+   echo -n "End of file generated " ; LANG=en_GB date
+   echo
+) \
+  > "${buffer}"
+
+errors=$?
+
+if [ ${errors} -gt 0 ]; then
+   rm -f "${buffer}"
+else
+   mv "${buffer}" "${target}"
+fi
+
+exit ${errors}
+
+#-----------------------------------------------------------------------------

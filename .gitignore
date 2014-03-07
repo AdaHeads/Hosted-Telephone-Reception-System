@@ -1,6 +1,15 @@
+# Configuration files:
+scripts/compose_use_case.rc
+
+# Generated files for further use:
 use-cases/*/*/user.seq-diag
 use-cases/*/*/user.seq-diag.png
 use-cases/*/*/system.md
 use-cases/*/*/system.seq-diag
 use-cases/*/*/system.seq-diag.png
 use-cases/*/*/test.py
+
+# Trash:
+use-cases/*/*/*.orig
+use-cases/*/*/*.rej
+
