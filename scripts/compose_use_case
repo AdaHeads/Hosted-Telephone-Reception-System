@@ -46,7 +46,7 @@ else
 fi
 
 buffer="$(mktemp)"
-target="${wiki}/$(cat "${use_case}/name")"
+target="${wiki}/$(cat "${use_case}/name").md"
 
 #-----------------------------------------------------------------------------
 #  Collect:
