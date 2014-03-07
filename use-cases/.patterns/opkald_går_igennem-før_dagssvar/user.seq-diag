@@ -1,4 +1,4 @@
-  Systemet      ->> Receptionist [label = "Om JSA R&I"];
-  Systemet      ->> Receptionist [label = "forbindelse til opkalder"];
+  System        ->> Receptionist [label = "Om JSA R&I"];
+  System        ->> Receptionist [label = "forbindelse til opkalder"];
   Opkalder     <<-  Receptionist [label = "JSA R&I.  God dag, det er ..."];
 }
