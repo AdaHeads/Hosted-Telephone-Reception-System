@@ -1,3 +1,3 @@
   Receptionist-N     ->> Klient-N          [label = "genvejstast:\ntag opkald"];
   Klient-N           ->> Call-Flow-Control [label = "/call/pickup"];
-  Call-Flow-Control  ->> FreeSWITCH        [label = "???"];
+

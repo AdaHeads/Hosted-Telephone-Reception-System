@@ -1,8 +1,8 @@
   Receptionist-N     ->> Klient-N          [label = "genvejstast-stil-igennem"];
   Klient-N           ->> Call-Flow-Control [label = "stil-igennem"];
   Klient-N           ->> Klient-N          [label = "ny tilstand:\nledig"];
-  Call-Flow-Control  ->> FreeSWITCH        [label = "forbind: indgaaende, udgaaende"];
+  Call-Flow-Control  ->> FreeSWITCH        [label = "connect: incoming, outgoing"];
   FreeSWITCH         ->> Telefon-N         [label = "SIP: hang-up"];
-  FreeSWITCH         ->> Call-Flow-Control [label = "ledig: telefon-N"];
-  FreeSWITCH         ->> FreeSWITCH        [label = "forbind indgaaende og udgaaende"];
+  FreeSWITCH         ->> Call-Flow-Control [label = "free: telefon-N"];
+  FreeSWITCH         ->> FreeSWITCH        [label = "connect: incoming, outgoing"];
 }
