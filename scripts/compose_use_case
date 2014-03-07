@@ -74,7 +74,7 @@ target="${wiki}/$(cat "${use_case}/name").md"
          variant="$(dirname "${variant_description}")"
          variant_id="$(basename "${variant}")"
 
-         sequence_diagram="diagrams/${use_case_id}-${variant_id}-${view}.png"
+         sequence_diagram="diagrams/${use_case_id}-${view}-${variant_id}.png"
 
          echo "### Variant ${variant_id//-/.}:"
          echo
