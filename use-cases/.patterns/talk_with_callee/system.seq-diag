@@ -6,4 +6,3 @@
   FreeSWITCH         ->> Telefon-N         [label = "SIP: lyd"];
   Telefon-N          ->> Receptionist-N    [label = "snak"];
   === end loop ===
-}

@@ -1,3 +1,4 @@
+seqdiag {
   Receptionist       ->> System            [label = "genvej: viderestil til nummer"];
   System             ->> Receptionist      [label = "Indtast telefonnummer her: ..."];
   Receptionist       ->> System            [label = "indtaster/indkopierer telefonnummer"];

@@ -1,1 +1,2 @@
+seqdiag {
   Receptionist       ->> System            [label = "genvej: ring til primaert nummer"];

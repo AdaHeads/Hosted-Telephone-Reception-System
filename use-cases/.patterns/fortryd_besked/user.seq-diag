@@ -1,2 +1,2 @@
-  Receptionist       ->> System            [label = "genvejstast-fortryd-besked"];
+  Receptionist       ->> System            [label = "genvej: fortryd-besked"];
   Receptionist      <<-  System            [label = "blank 'send besked'-dialog"];

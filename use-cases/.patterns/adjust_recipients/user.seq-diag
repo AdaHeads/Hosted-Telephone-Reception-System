@@ -1,2 +1,2 @@
-  Receptionist       ->> System            [label = "genvejstast-fokus-modtagerliste", note = "maaske"];
+  Receptionist       ->> System            [label = "genvej: fokus-modtagerliste", note = "maaske"];
   Receptionist       ->> System            [label = "retter modtagerlisten"];

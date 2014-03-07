@@ -1,2 +1,2 @@
-  Receptionist       ->> System            [label = "genvejstast-fokus-besked-tekst"];
+  Receptionist       ->> System            [label = "genvej: fokus-besked-tekst"];
   Receptionist       ->> System            [label = "taster noter til en besked"];
