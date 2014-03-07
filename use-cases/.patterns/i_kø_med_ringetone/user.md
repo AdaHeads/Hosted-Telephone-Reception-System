@@ -1,1 +1,1 @@
-1. Receptionisten får vist opkaldet (med ringetone-indikering) i listen med ventende opkald.
+1. Receptionisten får opkaldet vist (med ringetone-indikering) i listen med ventende opkald.

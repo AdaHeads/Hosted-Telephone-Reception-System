@@ -1,2 +1,3 @@
+seqdiag {
   Receptionist       ->> System            [label = "bring kontaktliste og soegefelt i fokus"];
   Receptionist      <<-  System            [label = "fokus: kontaktliste og soegefelt"];
