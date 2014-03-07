@@ -27,16 +27,28 @@ if [ -f "${source}" ]; then
    if [ -f "${target}" ]; then
       if [ "${source}" -nt "${target}" ]; then
          seqdiag -o "${target}" "${source}"
+         result=$?
       else
          echo "'${target}' is already up-to-date." 1>&2
          exit 0
       fi
    else
       seqdiag -o "${target}" "${source}"
+      result=$?
    fi
 else
    echo "'${source}' does not exist." 1>&2
    exit 103
+fi
+
+#-----------------------------------------------------------------------------
+#--  Error reporting:
+
+if [ ${result} -eq 0 ]; then
+   exit
+else
+   echo "Failed to parse '${source}'." 1>&2
+   exit ${result}
 fi
 
 #-----------------------------------------------------------------------------
