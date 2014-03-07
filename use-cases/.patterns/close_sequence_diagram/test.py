@@ -1,6 +1,5 @@
 
-            self.Client.stop ()
+            self.Postprocessing ()
         except:
-            if not self.Client == None:
-                self.Client.stop ()
+            self.Postprocessing ()
             raise

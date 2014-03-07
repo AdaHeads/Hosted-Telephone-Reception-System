@@ -7,3 +7,8 @@
             self.Receptionist_Answers (Call_Information      = Call_Information,
                                        Reception_Information = Reception_Data,
                                        After_Greeting_Played = True)
+
+            self.Postprocessing ()
+        except:
+            self.Postprocessing ()
+            raise
