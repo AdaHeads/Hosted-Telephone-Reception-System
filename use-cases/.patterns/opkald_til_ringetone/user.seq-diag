@@ -1,4 +1,4 @@
 seqdiag {
-  Opkalder      ->  System       [label = "+45 21 49 08 04"];
-  System        ->> Opkalder     [label = "ringetone"];
-  System        ->> Receptionist [label = "Vises i koe: JSA R&I (ringetone)"]
+  Opkalder           ->  System            [label = "+45 21 49 08 04"];
+  System             ->> Opkalder          [label = "ringetone"];
+  System             ->> Receptionist      [label = "Opkald til: JSA R&I (ringer)"];

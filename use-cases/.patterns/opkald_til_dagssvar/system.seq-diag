@@ -4,7 +4,9 @@ seqdiag {
   FreeSWITCH         ->  FreeSWITCH        [label = "dial-plan-query:\n+45 21 49 08 04?", note = "queue\ncall"];
   FreeSWITCH         ->> Call-Flow-Control [label = "queued-dialtone: +45 21 49 08 04"];
   FreeSWITCH         ->  FreeSWITCH        [label = "pause-processing"];
-???
+  Call-Flow-Control  ->> Klient-N          [label = "event: call-offer\ndestination: +45 21 49 08 04", note = "Til alle klienter."];
+  Call-Flow-Control  ->  Call-Flow-Control [label = "wait 0.200 s"];
+  Call-Flow-Control  ->  Call-Flow-Control [label = "no responses\nto call-offer"];
   Call-Flow-Control  ->> FreeSWITCH        [label = "force-end-pause: +45 21 49 08 04"];
   FreeSWITCH         ->> Call-Flow-Control [label = "queued-unavailable: +45 21 49 08 04"];
   FreeSWITCH         ->> Opkalder          [label = "dagssvar"];

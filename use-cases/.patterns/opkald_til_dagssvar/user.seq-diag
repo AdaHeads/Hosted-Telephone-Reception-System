@@ -1,4 +1,4 @@
 seqdiag {
   Opkalder           ->> System            [label = "Ringer til\n+45 21 49 08 04"];
   System             ->> Opkalder          [label = "Du har ringet til\nJSA R&I. Vent venligst."];
-  System             ->> Receptionist      [label = "Opkald til: JSA R&I (optaget)"]
+  System             ->> Receptionist      [label = "Opkald til: JSA R&I (optaget)"];
