@@ -31,9 +31,12 @@ To generate these files run:
 make use-cases
 ```
 
-This information is collected and pushed to the wiki as one page per use-case.
+To collect this information and push it to the wiki as one page per use-case, run:
+```shell
+make wiki
+```
 
 The integration tests are pushed to the [Coverage Tests](https://github.com/AdaHeads/Coverage_Tests) repository.
 
-(The push to wiki and Coverage Tests isn't implemented yet.)
+(The push to Coverage Tests isn't implemented yet.)
 
