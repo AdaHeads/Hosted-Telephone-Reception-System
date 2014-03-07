@@ -123,7 +123,10 @@ errors=$?
 if [ ${errors} -gt 0 ]; then
    rm -f "${buffer}"
 else
-   mv "${buffer}" "${target}"
+   perl -lpe 's/ +$//;' "${buffer}" \
+     | uniq \
+     > "${target}"
+   rm -f "${buffer}"
 fi
 
 exit ${errors}
