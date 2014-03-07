@@ -105,6 +105,14 @@ target="${wiki}/$(cat "${use_case}/name").md"
       done
    done
 
+   if [ ! -f "${use_case}/links.md" ]; then
+      echo "Use-case '${use_case_id}' has no links." 1>&2
+      exit 108
+   fi
+
+   cat "${use_case}/links.md"
+   echo
+
    echo -n "End of file generated " ; LANG=en_GB date
    echo
 ) \
