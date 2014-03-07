@@ -1,3 +1,4 @@
+seqdiag {
   Opkalder      ->  Systemet     [label = "+45 21 49 08 04"];
   Systemet      ->> Opkalder     [label = "ringetone"];
   Systemet      ->> Receptionist [label = "Vises i koe: JSA R&I (ringetone)"]
