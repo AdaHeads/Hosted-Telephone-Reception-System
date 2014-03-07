@@ -13,6 +13,12 @@ clean:
 	rm -f use-cases/*/*/*.rej
 
 distclean: clean
+	rm -f use-cases/*/*/user.seq-diag
+	rm -f use-cases/*/*/user.seq-diag.png
+	rm -f use-cases/*/*/system.md
+	rm -f use-cases/*/*/system.seq-diag
+	rm -f use-cases/*/*/system.seq-diag.png
+	rm -f use-cases/*/*/test.py
 
 .PHONY: use-cases clean distclean
 
