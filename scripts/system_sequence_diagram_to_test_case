@@ -14,7 +14,7 @@ else
    exit 102
 fi
 
-source_type=system.md
+source_type=system.seq-diag
 target_type=test.py
 
 source="${variant}/${source_type}"

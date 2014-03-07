@@ -6,7 +6,7 @@ use-cases:
 	                  scripts/user_view_to_system_view \
 	                  scripts/system_view_to_sequence_diagram \
 	                  scripts/system_sequence_diagram_to_png \
-	                  scripts/system_view_to_test_case; do for use_case in use-cases/*/*/user.md; do ./$${conversion} $${use_case}; done; done
+	                  scripts/system_sequence_diagram_to_test_case; do for use_case in use-cases/*/*/user.md; do ./$${conversion} $${use_case}; done; done
 
 wiki: use-cases
 	for use_case in use-cases/*/name; do \
