@@ -67,3 +67,11 @@ for source_pattern in $(LANG=C wc -l "${patterns}"/*/"${source_type}" \
 done
 
 #-----------------------------------------------------------------------------
+#  Set wiki URL:
+
+variant_html_name="wiki-variant-$(basename "${variant}" | perl -lpe 's/-//g; s/I/i/g')-1"
+use_case_name="$(cat "$(dirname "${variant}")/name")"
+
+perl -i~ -lpe 's|[\$][{]WIKI_URL[}]|https://github.com/AdaHeads/Hosted-Telephone-Reception-System/wiki/'"${use_case_name}#${variant_html_name}|g" "${target}"
+
+#-----------------------------------------------------------------------------
