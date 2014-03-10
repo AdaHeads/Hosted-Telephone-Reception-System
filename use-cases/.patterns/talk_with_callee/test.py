@@ -1,0 +1,8 @@
+            self.Step (Message = "=== loop ===")
+            self.Step (Message = "Receptionist-N     ->> Telefon-N         [label = "snak]")
+            self.Step (Message = "Telefon-N          ->> FreeSWITCH        [label = "SIP: lyd]")
+            self.Step (Message = "FreeSWITCH         ->> Medarbejder       [label = "SIP: lyd]")
+            self.Step (Message = "Medarbejder        ->> FreeSWITCH        [label = "SIP: lyd]")
+            self.Step (Message = "FreeSWITCH         ->> Telefon-N         [label = "SIP: lyd]")
+            self.Step (Message = "Telefon-N          ->> Receptionist-N    [label = "snak]")
+            self.Step (Message = "=== end loop ===")

@@ -11,5 +11,5 @@ class Sequence_Diagram (Test_Case):
             self.Step (Message = "Receptionist-N     ->> Klient-N          [genvejstast-ring-til-primaert-nummer]")
             self.Receptionist_Places_Call (Number = self.Callee.Number)
             self.Step (Message = "Call-Flow-Control  ->> FreeSWITCH        [ring-op: telefon-N, nummer]")
-            self.Callee.Wait_For_Call ()
+            self.Callee_Receives_Call ()
             self.Step (Message = "FreeSWITCH         ->> FreeSWITCH        [forbind opkald\nog telefon-N]")
