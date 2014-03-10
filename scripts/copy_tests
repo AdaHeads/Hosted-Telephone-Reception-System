@@ -1,0 +1,60 @@
+#! /bin/bash
+#-----------------------------------------------------------------------------
+#  Check command line arguments:
+
+if [ $# != 0 ]; then
+   echo "Usage:" 1>&2
+   echo "   $0"  1>&2
+   exit 101
+fi
+
+#-----------------------------------------------------------------------------
+#  Locate Coverage_Tests check-out:
+
+if [ -f "$0.rc" ]; then
+   source "$0.rc"
+fi
+
+if [ ! -z "${coverage_tests}" -a -d "${coverage_tests}" ]; then
+   true
+else
+   find ~/ -type d -name .git \
+     | while read git_directory; do
+          if egrep -q 'url = .+/Coverage_Tests(.git)?$' "${git_directory}/config"; then
+             echo "coverage_tests='$(dirname "${git_directory}")'" >> "$0.rc"
+             break
+          fi
+       done
+
+   if [ -f "$0.rc" ]; then
+      source "$0.rc"
+   fi
+fi
+
+if [ ! -z "${coverage_tests}" -a -d "${coverage_tests}" ]; then
+   echo "Coverage_Tests check-out located in '${coverage_tests}/'." 1>&2
+else
+   echo "Couldn't locate the 'Coverage_Tests' checkout." 1>&2
+   exit 104
+fi
+
+#-----------------------------------------------------------------------------
+#  Locate generated test cases:
+
+if cd "$(dirname "$0")/../use-cases"; then
+   true
+else
+   echo "Could not find the directory containing use-cases." 1>&2
+   exit 102
+fi
+
+#-----------------------------------------------------------------------------
+
+for test_case in */*/test.py; do
+   use_case="$(basename "$(dirname "$(dirname "${test_case}")")")"
+   variant="$(basename "$(dirname "${test_case}")")"
+
+   cp "${test_case}" "${coverage_tests}/src/${use_case//-/_}_${variant//-/_}_tests.py"
+done
+
+#-----------------------------------------------------------------------------

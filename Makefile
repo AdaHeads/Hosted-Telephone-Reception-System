@@ -1,4 +1,4 @@
-all: use-cases
+all: use-cases wiki integration-tests
 
 use-cases:
 	for conversion in scripts/user_view_to_sequence_diagram \
@@ -13,6 +13,9 @@ wiki: use-cases
 	   ./scripts/compose_use_case $${use_case}; \
 	done
 
+integration-tests: use-cases
+	./scripts/copy_tests
+
 clean:
 	rm -f use-cases/*/*/*.orig
 	rm -f use-cases/*/*/*.rej
@@ -25,5 +28,5 @@ distclean: clean
 	rm -f use-cases/*/*/system.seq-diag.png
 	rm -f use-cases/*/*/test.py
 
-.PHONY: use-cases clean distclean
+.PHONY: use-cases wiki integration-tests clean distclean
 

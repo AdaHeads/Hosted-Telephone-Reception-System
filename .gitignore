@@ -6,6 +6,7 @@
 
 # Configuration files:
 scripts/compose_use_case.rc
+scripts/copy_tests.rc
 
 # Generated files for further use:
 use-cases/*/*/user.seq-diag
