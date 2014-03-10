@@ -1,5 +1,7 @@
 # Backup files from editors etc.:
 *\~
+.\#*
+\#*\#
 .\#*\#
 
 # Configuration files:
