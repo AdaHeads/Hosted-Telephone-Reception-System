@@ -1,0 +1,5 @@
+            self.Step (Message = "=== loop ===")
+            self.Step (Message = "Receptionist-N     ->> Klient-N          [any character]")
+            self.Step (Message = "Klient-N           ->> Receptionist-N    [narrow down contact list]")
+            self.Step (Message = "Receptionist-N    <<-  Klient-N          [update contact view]")
+            self.Step (Message = "=== end loop ===")
