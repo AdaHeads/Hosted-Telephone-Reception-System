@@ -15,7 +15,7 @@ class Sequence_Diagram (Test_Case):
             self.Step (Message = "FreeSWITCH: pauses dial-plan processing for # seconds")
             Call_ID, Reception_ID = self.Call_Announced ()
             self.Step (Message = "Call-Flow-Control  ->  Call-Flow-Control [wait 0.200 s]", Delay_In_Seconds = 0.200)
-            self.Step (Message = "Call-Flow-Control  ->  Call-Flow-Control [no responses\nto call-offer]")
+            self.Step (Message = "Call-Flow-Control  ->  Call-Flow-Control [no responses to call-offer]")
             self.Step (Message = "Call-Flow-Control  ->> FreeSWITCH        [force-end-pause: <call_ID>]")
             self.Step (Message = "FreeSWITCH         ->> Call-Flow-Control [queued-unavailable: <call_ID>]")
             self.Step (Message = "FreeSWITCH         ->> Opkalder          [dagssvar]")

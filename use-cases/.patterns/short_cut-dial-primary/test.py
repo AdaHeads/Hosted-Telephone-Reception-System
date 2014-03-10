@@ -1,7 +1,7 @@
 # ${WIKI_URL}
 
-from incoming_calls import Test_Case
-from config         import queued_reception as Reception
+from forward_call import Test_Case
+from config       import queued_reception as Reception
 
 class Sequence_Diagram (Test_Case):
     def test_Run (self):
@@ -12,4 +12,4 @@ class Sequence_Diagram (Test_Case):
             self.Receptionist_Places_Call (Number = self.Callee.Number)
             self.Step (Message = "Call-Flow-Control  ->> FreeSWITCH        [ring-op: telefon-N, nummer]")
             self.Callee_Receives_Call ()
-            self.Step (Message = "FreeSWITCH         ->> FreeSWITCH        [forbind opkald\nog telefon-N]")
+            self.Step (Message = "FreeSWITCH         ->> FreeSWITCH        [forbind opkald og telefon-N]")
