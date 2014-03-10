@@ -9,7 +9,7 @@ class Sequence_Diagram (Test_Case):
         try:
             self.Preconditions (Reception = Reception)
 
-            self.Step ("Receptionist-N     ->> Klient-N          [genvejstast-viderestil-til-nummer]")
-            self.Step ("Klient-N           ->> Receptionist-N    [indtastningsfelt: telefonnummer]")
-            self.Step ("Receptionist-N     ->> Klient-N          [indtaster/indkopierer nummer]")
-            self.Step ("Receptionist-N     ->> Klient-N          [genvejstast-ring-op]")
+            self.Step (Message = "Receptionist-N     ->> Klient-N          [genvejstast-viderestil-til-nummer]")
+            self.Step (Message = "Klient-N           ->> Receptionist-N    [indtastningsfelt: telefonnummer]")
+            self.Step (Message = "Receptionist-N     ->> Klient-N          [indtaster/indkopierer nummer]")
+            self.Step (Message = "Receptionist-N     ->> Klient-N          [genvejstast-ring-op]")

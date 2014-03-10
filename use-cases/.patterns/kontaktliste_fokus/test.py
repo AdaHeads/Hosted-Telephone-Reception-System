@@ -9,5 +9,5 @@ class Sequence_Diagram (Test_Case):
         try:
             self.Preconditions (Reception = Reception)
 
-            self.Step ("Receptionist-N     ->> Klient-N          [genvejstast-for-kontaktliste]")
-            self.Step ("Receptionist-N    <<-  Klient-N          [fokus: kontaktliste og soegefelt]")
+            self.Step (Message = "Receptionist-N     ->> Klient-N          [genvejstast-for-kontaktliste]")
+            self.Step (Message = "Receptionist-N    <<-  Klient-N          [fokus: kontaktliste og soegefelt]")
