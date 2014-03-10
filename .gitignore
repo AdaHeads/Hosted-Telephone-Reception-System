@@ -9,12 +9,12 @@ scripts/compose_use_case.rc
 scripts/copy_tests.rc
 
 # Generated files for further use:
-use-cases/*/*/user.seq-diag
-use-cases/*/*/user.seq-diag.png
-use-cases/*/*/system.md
-use-cases/*/*/system.seq-diag
-use-cases/*/*/system.seq-diag.png
-use-cases/*/*/test.py
+use-cases/[a-z]*/*/user.seq-diag
+use-cases/[a-z]*/*/user.seq-diag.png
+use-cases/[a-z]*/*/system.md
+use-cases/[a-z]*/*/system.seq-diag
+use-cases/[a-z]*/*/system.seq-diag.png
+use-cases/[a-z]*/*/test.py
 
 # Trash:
 use-cases/*/*/*.orig
