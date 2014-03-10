@@ -70,7 +70,7 @@ done
 #  Set wiki URL:
 
 variant_html_name="wiki-variant-$(basename "${variant}" | perl -lpe 's/-//g; s/I/i/g')-1"
-use_case_name="$(cat "$(dirname "${variant}")/name")"
+use_case_name="$(cat "$(dirname "${variant}")/name" | perl -lpe 's/:/%3A/g; s/å/%C3%A5/g')"
 
 perl -i~ -lpe 's|[\$][{]WIKI_URL[}]|https://github.com/AdaHeads/Hosted-Telephone-Reception-System/wiki/'"${use_case_name}#${variant_html_name}|g" "${target}"
 
