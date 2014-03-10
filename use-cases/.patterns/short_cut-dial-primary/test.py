@@ -10,7 +10,7 @@ class Sequence_Diagram (Test_Case):
             self.Preconditions (Reception = Reception)
 
             self.Step ("Receptionist-N     ->> Klient-N          [genvejstast-ring-til-primaert-nummer]")
-            self.Receptionist.Call (Number = self.Callee.Number)
+            self.Receptionist_Places_Call (Number = self.Callee.Number)
             self.Step ("Call-Flow-Control  ->> FreeSWITCH        [ring-op: telefon-N, nummer]")
             self.Callee.Wait_For_Call ()
             self.Step ("FreeSWITCH         ->> FreeSWITCH        [forbind opkald\nog telefon-N]")

@@ -9,5 +9,5 @@ class Sequence_Diagram (Test_Case):
         try:
             self.Preconditions (Reception = Reception)
 
-            self.Step ("Opkalder           ->> FreeSWITCH        [SIP: +45 21 49 08 04]")
+            self.Step ("Opkalder           ->> FreeSWITCH        [SIP: <reception PSTN>]")
             self.Step ("FreeSWITCH         ->> Opkalder          [ringetone]")

@@ -9,10 +9,10 @@ class Sequence_Diagram (Test_Case):
         try:
             self.Preconditions (Reception = Reception)
 
-            self.Caller.Call (Number = Reception)
-            self.Caller.Hears_Dialtone ()
-            self.Step ("FreeSWITCH         ->  FreeSWITCH        [dial-plan-query:\n+45 21 49 08 04?", note = "queue\ncall]")
-            self.Step ("FreeSWITCH         ->> Call-Flow-Control [queued-dialtone: +45 21 49 08 04]")
-            self.Step ("FreeSWITCH         ->  FreeSWITCH        [pause-processing]")
+            self.Caller_Places_Call (Number = Reception)
+            self.Caller_Hears_Dialtone ()
+            self.Step (Message = "FreeSWITCH: checks dial-plan => to queue")
+            self.Step (Message = "FreeSWITCH->Call-Flow-Control: call queued with dial-tone")
+            self.Step (Message = "FreeSWITCH: pauses dial-plan processing for # seconds")
             Call_ID, Reception_ID = self.Call_Announced ()
-            self.Step ("Klient-N           ->> Receptionist-N    [Queue: JSA R&I (ringer)]")
+            self.Step (Message = "Client-N->Receptionist-N: shows call (with dial-tone)")
