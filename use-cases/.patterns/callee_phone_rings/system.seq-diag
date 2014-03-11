@@ -1,1 +1,1 @@
-  FreeSWITCH         ->> Medarbejder       [label = "SIP: opkald"];
+  FreeSWITCH         ->> Medarbejder       [label = "Telefon ringer"];

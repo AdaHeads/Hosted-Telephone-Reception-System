@@ -1,1 +1,1 @@
-            self.Callee_Receives_Call ()
+            self.Step (Message = "Callee phone rings.")
