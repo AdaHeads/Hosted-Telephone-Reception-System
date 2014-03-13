@@ -3,6 +3,7 @@
 .\#*
 \#*\#
 .\#*\#
+.*.swp
 
 # Configuration files:
 scripts/compose_use_case.rc
