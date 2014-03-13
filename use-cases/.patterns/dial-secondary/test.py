@@ -11,7 +11,7 @@ class Sequence_Diagram (Test_Case):
             self.Step (Message = "Receptionist-N     ->> Klient-N          [genvejstast-liste-med-sekundaere-numre]")
             self.Step (Message = "Receptionist-N     ->> Klient-N          [pil op/ned - nogle gange]")
             self.Step (Message = "Receptionist-N     ->> Klient-N          [genvejstast-ring-markeret-nummer-op]")
-            self.Receptionist_Places_Call (Number = self.Callee.Number)
+            self.Receptionist_Places_Call (Number = self.Callee.sip_uri ())
             self.Step (Message = "Call-Flow-Control  ->> FreeSWITCH        [ring-op: nummer, telefon-N]")
             self.Callee_Receives_Call ()
             self.Step (Message = "FreeSWITCH         ->  FreeSWITCH        [forbind opkald med telefon-N]")
