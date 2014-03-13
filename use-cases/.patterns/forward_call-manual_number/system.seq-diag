@@ -1,5 +1,11 @@
 seqdiag {
-  Receptionist-N     ->> Klient-N          [label = "genvejstast-viderestil-til-nummer"];
+  Receptionist-N     ->> Klient-N          [label = "genvej: viderestil-til-nummer"];
   Klient-N           ->> Receptionist-N    [label = "indtastningsfelt: telefonnummer"];
   Receptionist-N     ->> Klient-N          [label = "indtaster/indkopierer nummer"];
-  Receptionist-N     ->> Klient-N          [label = "genvejstast-ring-op"];
+  Receptionist-N     ->> Klient-N          [label = "genvej: ring-op"];
+  Klient-N           ->> Call-Flow-Control [label = "ring-op: <nummer>"];
+  Call-Flow-Control  ->> FreeSWITCH        [label = "samtale: telefon-N, <nummer>"];
+  FreeSWITCH         ->> Telefon-N         [label = "SIP: opkald"];
+  FreeSWITCH         ->> Medarbejder       [label = "SIP: opkald"];
+  FreeSWITCH         ->> FreeSWITCH        [label = "Brokobler opkald."];
+  Telefon-N          ->> FreeSWITCH        [label = "SIP: modtag opkald"];
