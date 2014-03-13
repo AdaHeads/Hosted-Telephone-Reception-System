@@ -8,7 +8,7 @@ class Sequence_Diagram (Test_Case):
         try:
             self.Preconditions (Reception = Reception)
 
-            self.Step (Message = "Receptionist-N     ->> Klient-N          [genvejstast-ring-til-primaert-nummer]")
+            self.Step (Message = "Receptionist-N     ->> Klient-N          [genvej: ring-til-primaert-nummer]")
             self.Receptionist_Places_Call (Number = self.Callee.sip_uri ())
             self.Step (Message = "Call-Flow-Control  ->> FreeSWITCH        [ring-op: telefon-N, nummer]")
             self.Callee_Receives_Call ()

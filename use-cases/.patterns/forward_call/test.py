@@ -1,4 +1,4 @@
-            self.Step (Message = "Receptionist-N     ->> Klient-N          [genvejstast-stil-igennem]")
+            self.Step (Message = "Receptionist-N     ->> Klient-N          [genvej: stil-igennem]")
             self.Step (Message = "Klient-N           ->> Call-Flow-Control [stil-igennem]")
             self.Step (Message = "Klient-N           ->> Klient-N          [ny tilstand: ledig]")
             self.Step (Message = "Call-Flow-Control  ->> FreeSWITCH        [connect: incoming, outgoing]")

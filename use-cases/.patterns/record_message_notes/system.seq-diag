@@ -1,2 +1,2 @@
-  Receptionist-N     ->> Klient-N          [label = "genvejstast-fokus-besked-tekst"];
+  Receptionist-N     ->> Klient-N          [label = "genvej: fokus-besked-tekst"];
   Receptionist-N     ->> Klient-N          [label = "taster: besked"];

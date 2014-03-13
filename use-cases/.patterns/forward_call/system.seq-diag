@@ -1,4 +1,4 @@
-  Receptionist-N     ->> Klient-N          [label = "genvejstast-stil-igennem"];
+  Receptionist-N     ->> Klient-N          [label = "genvej: stil-igennem"];
   Klient-N           ->> Call-Flow-Control [label = "stil-igennem"];
   Klient-N           ->> Klient-N          [label = "ny tilstand:\nledig"];
   Call-Flow-Control  ->> FreeSWITCH        [label = "connect: incoming, outgoing"];

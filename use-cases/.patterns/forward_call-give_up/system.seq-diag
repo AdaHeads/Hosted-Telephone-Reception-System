@@ -1,4 +1,4 @@
-  Receptionist-N     ->> Klient-N          [label = "genvejstast-opgiv-opkald"];
+  Receptionist-N     ->> Klient-N          [label = "genvej: opgiv-opkald"];
   Klient-N           ->> Call-Flow-Control [label = "opgiv opkald"];
   Call-Flow-Control  ->> FreeSWITCH        [label = "opgiv telefon-N's udgaaende opkald"];
   FreeSWITCH         ->> Medarbejder       [label = "SIP: hang-up"];
