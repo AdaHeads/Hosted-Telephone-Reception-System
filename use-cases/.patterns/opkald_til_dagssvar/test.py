@@ -18,6 +18,6 @@ class Sequence_Diagram (Test_Case):
             self.Step (Message = "Call-Flow-Control  ->  Call-Flow-Control [no responses to call-offer]")
             self.Step (Message = "Call-Flow-Control  ->> FreeSWITCH        [force-end-pause: <call_ID>]")
             self.Step (Message = "FreeSWITCH         ->> Call-Flow-Control [queued-unavailable: <call_ID>]")
-            self.Step (Message = "FreeSWITCH         ->> Opkalder          [dagssvar]")
+            self.Step (Message = "FreeSWITCH         ->> Opkalder          »De har ringet til <reception name>. Vent venligst.«")
             self.Call_Announced_As_Locked (Call_ID = Call_ID)
             self.Step (Message = "Klient-N           ->> Receptionist-N    [Queue: <reception name> (optaget)]")
