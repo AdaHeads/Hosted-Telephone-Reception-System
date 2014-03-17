@@ -3,5 +3,4 @@
   Call-Flow-Control  ->> Message-Spool     [label = "send <besked> til <modtagerliste>"];
   Message-Spool      ->> Medarbejder       [label = "<besked>", note = "muligvis\ntil flere"];
   Receptionist-N    <<-  Klient-N          [label = "ryddet 'send besked'-dialog"];
-  Klient-N           ->> Call-Flow-Control [label = "ledig-hvis-ikke-paa-telefonen"];
 }

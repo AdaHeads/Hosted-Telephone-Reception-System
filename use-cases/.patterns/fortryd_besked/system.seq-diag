@@ -1,4 +1,3 @@
   Receptionist-N     ->> Klient-N          [label = "genvej: fortryd-besked"];
   Receptionist-N    <<-  Klient-N          [label = "ryddet 'send besked'-dialog"];
-  Klient-N           ->> Call-Flow-Control [label = "ledig-hvis-ikke-paa-telefonen"];
 }
