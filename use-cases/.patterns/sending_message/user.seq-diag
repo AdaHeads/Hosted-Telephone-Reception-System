@@ -1,2 +1,3 @@
   Receptionist       ->> System            [label = "genvej: send-besked"];
   System             ->> Medarbejder       [label = "besked", note = "muligvis\ntil flere"];
+}

@@ -1,3 +1,4 @@
   Klient-N           ->> Klient-N          [label = "ryd alle\n'send besked'-\nfelter"];
   Receptionist-N    <<-  Klient-N          [label = "ryddet 'send besked'-dialog"];
   Klient-N           ->> Call-Flow-Control [label = "ledig-hvis-telefon-afkoblet"];
+}
