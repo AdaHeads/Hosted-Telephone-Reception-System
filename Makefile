@@ -19,6 +19,7 @@ integration-tests: use-cases
 clean:
 	rm -f use-cases/*/*/*.orig
 	rm -f use-cases/*/*/*.rej
+	rm -f use-cases/*/*/*\~
 
 distclean: clean
 	rm -f use-cases/*/*/user.seq-diag
