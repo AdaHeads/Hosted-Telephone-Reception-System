@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # ${WIKI_URL}
 
 from forward_call import Test_Case

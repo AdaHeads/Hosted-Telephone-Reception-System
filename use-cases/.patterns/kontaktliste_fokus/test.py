@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # ${WIKI_URL}
 
 from find_contact import Test_Case

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # ${WIKI_URL}
 
 from incoming_calls import Test_Case

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # ${WIKI_URL}
 
 from send_message import Test_Case
