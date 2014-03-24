@@ -63,6 +63,7 @@ target="wikis/Hosted-Telephone-Reception-System.wiki/Protocol-overview.md"
       previous_name_level_3="$(echo "${name}-N/A-N/A-N/A" | cut -d- -f-3)"
    done
 
+   echo
    echo -n "End of file generated " ; LANG=en_GB date
    echo
 ) \
