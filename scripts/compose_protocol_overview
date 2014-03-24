@@ -1,0 +1,92 @@
+#! /bin/bash
+#-----------------------------------------------------------------------------
+#  Work from repository root:
+
+if cd "$(dirname "$0")/.."; then
+   true
+else
+   echo "Couldn't locate the root directory of the 'Hosted-Telephone-Reception-System' repository." 1>&2
+   exit 101
+fi
+
+#-----------------------------------------------------------------------------
+#  Locate wikis:
+
+for wiki in DatabaseServers \
+	    Hosted-Telephone-Reception-System \
+	    Call-Flow-Control; do
+   if [ -d "wikis/${wiki}.wiki/.git" ]; then
+      true
+   else
+      echo "Couldn't locate a check-out of the '${wiki}' wiki." 1>&2
+      exit 102
+   fi
+done
+
+#-----------------------------------------------------------------------------
+#  Files:
+
+buffer="$(mktemp)"
+target="wikis/Hosted-Telephone-Reception-System.wiki/Protocol-overview.md"
+
+#-----------------------------------------------------------------------------
+#  Collect:
+
+(
+   echo -n "File generated " ; LANG=en_GB date
+   echo
+
+   previous_name_level_1='N/A'
+   previous_name_level_2='N/A'
+   previous_name_level_3='N/A'
+
+   for part in $(ls wikis/*/Protocol-*.md | grep -v '^'${target}'$' | sed 's/\.md$//' | LANG=C.UTF-8 sort -t/ -k3); do
+      wiki="$(basename "$(dirname "${part}")" .wiki)"
+      name="$(basename "${part}")"; name="${name##Protocol-}"
+
+      url="https://github.com/AdaHeads/${wiki}/wiki/$(basename ${part})"
+
+      if echo "${name}" | grep -q "^${previous_name_level_3}"; then
+         presentation="      - [${name##${previous_name_level_3}}]"
+      elif echo "${name}" | grep -q "^${previous_name_level_2}"; then
+         presentation="    - [${name##${previous_name_level_2}}]"
+      elif echo "${name}" | grep -q "^${previous_name_level_1}"; then
+         presentation="  - [${name##${previous_name_level_1}}]"
+      else
+         presentation="- [${name}]"
+      fi
+
+      echo "${presentation}(${url})"
+
+      previous_name_level_1="$(echo "${name}-N/A-N/A-N/A" | cut -d- -f-1)"
+      previous_name_level_2="$(echo "${name}-N/A-N/A-N/A" | cut -d- -f-2)"
+      previous_name_level_3="$(echo "${name}-N/A-N/A-N/A" | cut -d- -f-3)"
+   done
+
+   echo -n "End of file generated " ; LANG=en_GB date
+   echo
+) \
+  > "${buffer}"
+
+errors=$?
+
+if [ ${errors} -gt 0 ]; then
+   rm -f "${buffer}"
+else
+   prettyfied="$(mktemp)"
+
+   perl -lpe 's/ +$//;' "${buffer}" | uniq > "${prettyfied}"
+   mv "${prettyfied}" "${buffer}"
+
+   if [ ! -f "${target}" ]; then
+      mv "${buffer}" "${target}"
+   elif [ $(diff "${target}" "${buffer}" | egrep -v '[Ff]ile generated ' | egrep -c '^[<>] ') -gt 0 ]; then
+      mv "${buffer}" "${target}"
+   else
+      rm -f "${buffer}"
+   fi
+fi
+
+exit ${errors}
+
+#-----------------------------------------------------------------------------

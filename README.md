@@ -37,8 +37,16 @@ make wiki
 ```
 You still have to review, commit and push any changes to the wiki repository yourself.
 
-**Note**: The command will fail if you haven't checked out the wiki
-repository somewhere under your home directory.
+
+Protocol overview:
+------------------
+
+To generate an overview of all existing protocol documentation in the public
+wikis for the system run:
+```shell
+make protocol-overview
+```
+
 
 Integration tests:
 ------------------

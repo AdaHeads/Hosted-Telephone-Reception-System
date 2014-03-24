@@ -1,4 +1,4 @@
-all: use-cases wiki integration-tests
+all: use-cases protocol-overview wiki integration-tests
 
 use-cases:
 	for conversion in scripts/user_view_to_sequence_diagram \
@@ -7,6 +7,9 @@ use-cases:
 	                  scripts/system_view_to_sequence_diagram \
 	                  scripts/system_sequence_diagram_to_png \
 	                  scripts/system_sequence_diagram_to_test_case; do for use_case in use-cases/*/*/user.md; do ./$${conversion} $${use_case}; done; done
+
+protocol-overview: wikis
+	./scripts/compose_protocol_overview
 
 wiki: use-cases wikis
 	for use_case in use-cases/*/name; do \
@@ -47,5 +50,5 @@ distclean: clean
 	rm -f use-cases/*/*/test.py
 	rm -rf wikis
 
-.PHONY: use-cases wiki wikis wiki-status integration-tests clean distclean
+.PHONY: use-cases protocol-overview wiki wikis wiki-status integration-tests clean distclean
 
