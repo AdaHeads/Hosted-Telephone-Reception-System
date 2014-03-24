@@ -47,11 +47,11 @@ target="wikis/Hosted-Telephone-Reception-System.wiki/Protocol-overview.md"
       url="https://github.com/AdaHeads/${wiki}/wiki/$(basename ${part})"
 
       if echo "${name}" | grep -q "^${previous_name_level_3}"; then
-         presentation="      - [${name##${previous_name_level_3}}]"
+         presentation="      - [${name##${previous_name_level_3}-}]"
       elif echo "${name}" | grep -q "^${previous_name_level_2}"; then
-         presentation="    - [${name##${previous_name_level_2}}]"
+         presentation="    - [${name##${previous_name_level_2}-}]"
       elif echo "${name}" | grep -q "^${previous_name_level_1}"; then
-         presentation="  - [${name##${previous_name_level_1}}]"
+         presentation="  - [${name##${previous_name_level_1}-}]"
       else
          presentation="- [${name}]"
       fi
