@@ -2,12 +2,11 @@
 # ${WIKI_URL}
 
 from forward_call import Test_Case
-from config       import queued_reception as Reception
 
 class Sequence_Diagram (Test_Case):
     def test_Run (self):
         try:
-            self.Preconditions (Reception = Reception)
+            Incoming_Call_ID = self.Preconditions ()
 
             self.Step (Message = "Receptionist-N     ->> Klient-N          [genvej: liste-med-sekundaere-numre]")
             self.Step (Message = "Receptionist-N     ->> Klient-N          [pil op/ned - nogle gange]")
