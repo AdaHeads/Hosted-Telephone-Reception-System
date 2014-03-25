@@ -13,7 +13,7 @@ class Sequence_Diagram (Test_Case):
             self.Step (Message = "Klient-N           ->> Receptionist-N    [indtastningsfelt: telefonnummer]")
             self.Step (Message = "Receptionist-N     ->> Klient-N          [indtaster/indkopierer nummer]")
             self.Step (Message = "Receptionist-N     ->> Klient-N          [genvej: ring-op]")
-            self.Receptionist_Places_Call (Number = self.Callee.sip_uri ())
+            Outgoing_Call_ID = self.Receptionist_Places_Call (Number = self.Callee.sip_uri ())
             self.Step (Message = "Call-Flow-Control  ->> FreeSWITCH        [samtale: telefon-N, <nummer>]")
             self.Step (Message = "FreeSWITCH         ->> Telefon-N         [SIP: opkald]")
             self.Step (Message = "FreeSWITCH         ->> Medarbejder       [SIP: opkald]")
