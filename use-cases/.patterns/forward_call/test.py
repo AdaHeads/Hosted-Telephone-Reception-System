@@ -1,5 +1,5 @@
             self.Step (Message = "Receptionist-N     ->> Klient-N          [genvej: stil-igennem]")
-            self.Receptionist_Forwards_Call (Incoming_Call = Call_ID,
+            self.Receptionist_Forwards_Call (Incoming_Call = Incoming_Call_ID,
                                              Outgoing_Call = Outgoing_Call_ID)
             self.Step (Message = "Klient-N           ->> Klient-N          [ny tilstand: ledig]")
             self.Step (Message = "Call-Flow-Control  ->> FreeSWITCH        [connect: incoming, outgoing]")
